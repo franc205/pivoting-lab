@@ -1,0 +1,60 @@
+# Usa la imagen base de Ubuntu
+FROM ubuntu:22.04
+
+# Actualiza el sistema e instala herramientas básicas
+RUN apt-get update && \
+    DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
+    openssh-server \
+    git \
+    nano \
+    curl \
+    wget \
+    iputils-ping \
+    net-tools \
+    netcat \
+    apache2 \
+    php8.1 \
+    python-is-python3 \
+    libapache2-mod-php \
+    php-xml \
+    php-mbstring \
+    php-json \
+    php-gd \
+    php-curl \
+    pip \
+    nmap && \
+    rm -rf /var/lib/apt/lists/*
+
+
+# Configura el servicio SSH para permitir acceso remoto
+RUN mkdir /var/run/sshd
+RUN echo 'root:toor' | chpasswd
+RUN sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config
+
+# Configura un directorio de trabajo para tu contenido web
+WORKDIR /var/www/html
+RUN GIT_SSL_NO_VERIFY=true git clone https://github.com/metinyesil/wp2fac.git/
+RUN mv wp2fac/ admin/
+RUN pip install pywhatkit
+
+# Configurar Wp2fac
+RUN sed -i '/include \x27db.php\x27;/d' /var/www/html/admin/send.php
+RUN sed -i '/$insert = $db->prepare("INSERT INTO sms SET pnumber=?, code=?");/,/$insert->execute(\[$whatsappNumber, $verificationCode\]);/d' /var/www/html/admin/send.php
+RUN sed -i 's#http://localhost/wp2fac/server/run.php#http://localhost/admin/server/run.php#' /var/www/html/admin/send.php
+
+
+# Habilita los módulos de Apache necesarios para PHP
+RUN a2enmod php8.1
+
+# Exponer el puerto SSH
+EXPOSE 22
+
+# Expone el puerto 80 para que el servidor web sea accesible
+# EXPOSE 80
+
+# Comando predeterminado para iniciar SSH y Bash
+CMD ["/usr/sbin/sshd", "-D"]
+CMD ["/bin/bash"]
+
+# Comando predeterminado para iniciar Apache
+CMD ["/usr/sbin/apache2ctl", "-D", "FOREGROUND"]

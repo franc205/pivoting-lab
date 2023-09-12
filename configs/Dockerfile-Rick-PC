@@ -1,0 +1,30 @@
+# Usa la imagen base de Ubuntu
+FROM ubuntu:22.04
+
+# Actualiza el sistema e instala herramientas básicas
+RUN apt-get update && \
+    DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
+    openssh-server \
+    git \
+    nano \
+    curl \
+    wget \
+    iputils-ping \
+    net-tools \
+    netcat \
+    nmap && \
+    rm -rf /var/lib/apt/lists/*
+
+
+# Configura el servicio SSH para permitir acceso remoto
+RUN mkdir /var/run/sshd
+RUN echo 'root:IAmJerry' | chpasswd
+RUN sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config
+
+
+# Exponer el puerto SSH
+EXPOSE 22
+
+# Comando predeterminado para iniciar SSH y Bash
+CMD ["/usr/sbin/sshd", "-D"]
+CMD ["/bin/bash"]

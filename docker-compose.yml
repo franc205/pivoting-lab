@@ -1,0 +1,158 @@
+version: '3'
+
+services:
+  jerry_pc:
+    build:
+      context: ./configs
+      dockerfile: Dockerfile-Jerry-PC
+    container_name: Jerry-PC
+    hostname: Jerry-PC
+    ports:
+      - "2222:22"
+    command: /bin/bash -c "/usr/sbin/sshd -D && /bin/bash"
+    networks:
+      - network_a
+      - network_b
+    cap_add:
+      - NET_ADMIN
+
+  webserver:
+    build:
+      context: ./configs
+      dockerfile: Dockerfile-Webserver
+    container_name: Webserver
+    hostname: Webserver
+    #ports:
+    #  - "8080:80"
+    command: /bin/bash -c "service apache2 start && /usr/sbin/sshd -D && /bin/bash"
+    networks:
+      - network_b
+      - network_c
+      - network_d
+    cap_add:
+      - NET_ADMIN
+
+  summer_pc:
+    build:
+      context: ./configs
+      dockerfile: Dockerfile-Summer-PC
+    container_name: Summer-PC
+    hostname: Summer-PC
+    command: /bin/bash -c "/usr/sbin/sshd -D && /bin/bash"
+    networks:
+      - network_c
+    cap_add:
+      - NET_ADMIN
+
+  beth_pc:
+    build:
+      context: ./configs
+      dockerfile: Dockerfile-Beth-PC
+    container_name: Beth-PC
+    hostname: Beth-PC
+    command: /bin/bash -c "/usr/sbin/sshd -D && /bin/bash"
+    networks:
+      - network_c
+    cap_add:
+      - NET_ADMIN
+
+  spacebeth_pc:
+    build:
+      context: ./configs
+      dockerfile: Dockerfile-SpaceBeth-PC
+    container_name: SpaceBeth-PC
+    hostname: SpaceBeth-PC
+    command: /bin/bash -c "/usr/sbin/sshd -D && /bin/bash"
+    networks:
+      - network_c
+    cap_add:
+      - NET_ADMIN
+
+  server51:
+    build:
+      context: ./configs
+      dockerfile: Dockerfile-Server51
+    container_name: Server51
+    hostname: Server51
+    command: /bin/bash -c "/usr/sbin/sshd -D && /bin/bash"
+    networks:
+      - network_d
+    cap_add:
+      - NET_ADMIN
+
+  birdperson_pc:
+    build:
+      context: ./configs
+      dockerfile: Dockerfile-Birdperson-PC
+    container_name: Birdperson-PC
+    hostname: Birdperson-PC
+    command: /bin/bash -c "/usr/sbin/sshd -D && /bin/bash"
+    networks:
+      - network_d
+    cap_add:
+      - NET_ADMIN
+
+  morty_pc:
+    build:
+      context: ./configs
+      dockerfile: Dockerfile-Morty-PC
+    container_name: Morty-PC
+    hostname: Morty-PC
+    command: /bin/bash -c "/usr/sbin/sshd -D && /bin/bash"
+    networks:
+      - network_d
+      - network_e
+    cap_add:
+      - NET_ADMIN
+
+  rick_pc:
+    build:
+      context: ./configs
+      dockerfile: Dockerfile-Rick-PC
+    container_name: Rick-PC
+    hostname: Rick-PC
+    command: /bin/bash -c "/usr/sbin/sshd -D && /bin/bash"
+    networks:
+      - network_e
+    cap_add:
+      - NET_ADMIN
+
+
+# Networks
+networks:
+  network_a:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 192.168.10.0/24
+    # internal: true
+
+
+  network_b:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 192.168.11.0/24
+    # internal: true
+
+
+  network_c:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 192.168.12.0/24
+    internal: true
+
+  network_d:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 192.168.13.0/24
+    internal: true
+
+  network_e:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 192.168.100.0/24
+    internal: true
