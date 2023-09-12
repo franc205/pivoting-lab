@@ -1,4 +1,4 @@
-# pivoting-lab
+# Pivoting Lab
 This repo contains the Dockerfiles to deploy a pivoting lab!
 
 
