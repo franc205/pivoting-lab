@@ -24,8 +24,8 @@ services:
       dockerfile: Dockerfile-Webserver
     container_name: Webserver
     hostname: Webserver
-    ports:
-      - "8080:80"
+    #ports:
+    #  - "8080:80"
     command: /bin/bash -c "service apache2 start && /usr/sbin/sshd -D && /bin/bash"
     networks:
       - network_b
