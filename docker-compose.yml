@@ -1,6 +1,7 @@
 version: '3'
 
 services:
+  # JERRY-PC
   jerry_pc:
     build:
       context: ./configs
@@ -16,14 +17,15 @@ services:
     cap_add:
       - NET_ADMIN
 
+  # WEBSERVER
   webserver:
     build:
       context: ./configs
       dockerfile: Dockerfile-Webserver
     container_name: Webserver
     hostname: Webserver
-    #ports:
-    #  - "8080:80"
+    ports:
+      - "8080:80"
     command: /bin/bash -c "service apache2 start && /usr/sbin/sshd -D && /bin/bash"
     networks:
       - network_b
@@ -32,6 +34,7 @@ services:
     cap_add:
       - NET_ADMIN
 
+  # SUMMER-PC
   summer_pc:
     build:
       context: ./configs
@@ -44,6 +47,7 @@ services:
     cap_add:
       - NET_ADMIN
 
+  # BETH-PC
   beth_pc:
     build:
       context: ./configs
@@ -56,6 +60,7 @@ services:
     cap_add:
       - NET_ADMIN
 
+  # SPACEBETH-PC
   spacebeth_pc:
     build:
       context: ./configs
@@ -68,18 +73,22 @@ services:
     cap_add:
       - NET_ADMIN
 
+  # SERVER51
   server51:
     build:
       context: ./configs
       dockerfile: Dockerfile-Server51
     container_name: Server51
     hostname: Server51
-    command: /bin/bash -c "/usr/sbin/sshd -D && /bin/bash"
+    #ports:
+    #  - "8080:80"
+    command: /bin/bash -c "python3 /var/www/html/server.py"
     networks:
       - network_d
     cap_add:
       - NET_ADMIN
 
+  # BIRDPERSON_PC
   birdperson_pc:
     build:
       context: ./configs
@@ -92,6 +101,7 @@ services:
     cap_add:
       - NET_ADMIN
 
+  # MORTY-PC
   morty_pc:
     build:
       context: ./configs
@@ -105,6 +115,7 @@ services:
     cap_add:
       - NET_ADMIN
 
+  # RICK-PC
   rick_pc:
     build:
       context: ./configs
@@ -141,18 +152,18 @@ networks:
     ipam:
       config:
         - subnet: 192.168.12.0/24
-    internal: true
+    #internal: true
 
   network_d:
     driver: bridge
     ipam:
       config:
         - subnet: 192.168.13.0/24
-    internal: true
+    #internal: true
 
   network_e:
     driver: bridge
     ipam:
       config:
         - subnet: 192.168.100.0/24
-    internal: true
+    #internal: true
