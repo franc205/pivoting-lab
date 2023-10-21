@@ -12,6 +12,7 @@ RUN apt-get update && \
     iputils-ping \
     net-tools \
     netcat \
+    python-is-python3 \
     nmap && \
     rm -rf /var/lib/apt/lists/*
 
@@ -20,7 +21,6 @@ RUN apt-get update && \
 RUN mkdir /var/run/sshd
 RUN echo 'root:IAmJerry' | chpasswd
 RUN sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config
-
 
 # Exponer el puerto SSH
 EXPOSE 22

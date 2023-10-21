@@ -1,6 +1,23 @@
 version: '3'
 
 services:
+  # ATTACKER-PC
+  attacker_pc:
+    build:
+      context: ./configs
+      dockerfile: Dockerfile-Attacker-PC
+    container_name: Attacker-PC
+    hostname: Attacker-PC
+    ports:
+      #- "5900:5900"
+      - "2222:22"
+      - "6080:6080"
+    entrypoint: /bin/bash -c /root/start.sh
+    networks:
+      - network_a
+    cap_add:
+      - NET_ADMIN
+
   # JERRY-PC
   jerry_pc:
     build:
@@ -9,7 +26,8 @@ services:
     container_name: Jerry-PC
     hostname: Jerry-PC
     ports:
-      - "2222:22"
+      - "2200:22"
+      - "8000:8000"
     command: /bin/bash -c "/usr/sbin/sshd -D && /bin/bash"
     networks:
       - network_a
@@ -82,9 +100,10 @@ services:
     hostname: Server51
     #ports:
     #  - "8080:80"
-    command: /bin/bash -c "python3 /var/www/html/server.py"
+    entrypoint: /bin/bash -c /root/start.sh
     networks:
       - network_d
+      - network_e
     cap_add:
       - NET_ADMIN
 
@@ -97,7 +116,7 @@ services:
     hostname: Birdperson-PC
     command: /bin/bash -c "/usr/sbin/sshd -D && /bin/bash"
     networks:
-      - network_d
+      - network_e
     cap_add:
       - NET_ADMIN
 
@@ -110,8 +129,8 @@ services:
     hostname: Morty-PC
     command: /bin/bash -c "/usr/sbin/sshd -D && /bin/bash"
     networks:
-      - network_d
       - network_e
+      - network_f
     cap_add:
       - NET_ADMIN
 
@@ -124,7 +143,7 @@ services:
     hostname: Rick-PC
     command: /bin/bash -c "/usr/sbin/sshd -D && /bin/bash"
     networks:
-      - network_e
+      - network_f
     cap_add:
       - NET_ADMIN
 
@@ -136,32 +155,37 @@ networks:
     ipam:
       config:
         - subnet: 192.168.10.0/24
-    # internal: true
-
+    internal: true
 
   network_b:
     driver: bridge
     ipam:
       config:
         - subnet: 192.168.11.0/24
-    # internal: true
-
+    internal: true #Permitir salida a Internet
 
   network_c:
     driver: bridge
     ipam:
       config:
         - subnet: 192.168.12.0/24
-    #internal: true
+    internal: true
 
   network_d:
     driver: bridge
     ipam:
       config:
         - subnet: 192.168.13.0/24
-    #internal: true
+    internal: true
 
   network_e:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 192.168.14.0/24
+    internal: true
+
+  network_f:
     driver: bridge
     ipam:
       config:

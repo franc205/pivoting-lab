@@ -35,7 +35,7 @@ RUN sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/
 WORKDIR /var/www/html
 RUN GIT_SSL_NO_VERIFY=true git clone https://github.com/metinyesil/wp2fac.git/
 RUN mv wp2fac/ admin/
-RUN cd admin && git checkout aa4f483caad90c7a732349e00085df67fa3be69b
+RUN cd admin && git checkout e0a0d2a7e17cc8bde321fd13fa4761e1ffb84dfc
 RUN pip install pywhatkit
 
 # Configurar Wp2fac
@@ -47,7 +47,14 @@ RUN sed -i 's#http://localhost/wp2fac/server/run.php#http://localhost/admin/serv
 # Habilita los módulos de Apache necesarios para PHP
 RUN a2enmod php8.1
 
+# Poner bit SUID para PrivEsc
 RUN chmod u+s /usr/bin/python3
+
+# Copiar keys
+WORKDIR /root/.ssh
+RUN echo "flag{098f6bcd4621d373cade4e832627b4f6}" >> /root/flag.txt
+COPY files/id_rsa_home id_rsa_home
+COPY files/id_rsa_home.pub id_rsa_home.pub
 
 # Exponer el puerto SSH
 EXPOSE 22

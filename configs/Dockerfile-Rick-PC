@@ -18,9 +18,10 @@ RUN apt-get update && \
 
 # Configura el servicio SSH para permitir acceso remoto
 RUN mkdir /var/run/sshd
-RUN echo 'root:IAmJerry' | chpasswd
+RUN echo 'root:ngAQEa5AqgN@V5Hr' | chpasswd
 RUN sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config
 
+RUN echo "flag{36d80ec698b0c198a1106f26c9e07a4}" >> /root/flag.txt
 
 # Exponer el puerto SSH
 EXPOSE 22

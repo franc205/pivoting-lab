@@ -18,8 +18,14 @@ RUN apt-get update && \
 
 # Configura el servicio SSH para permitir acceso remoto
 RUN mkdir /var/run/sshd
-RUN echo 'root:IAmJerry' | chpasswd
+RUN echo 'root:toor' | chpasswd
 RUN sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config
+
+RUN echo "flag{3d4f2bf07dc1be38b20cd6e46949a107}" >> /root/flag.txt
+
+# Copiar key publica
+WORKDIR /root/.ssh
+COPY files/id_rsa_home.pub authorized_keys
 
 
 # Exponer el puerto SSH
