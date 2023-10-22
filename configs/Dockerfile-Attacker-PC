@@ -52,11 +52,12 @@ RUN mkdir -p ~/.vnc && x11vnc -storepasswd kali ~/.vnc/passwd
 # Configurar Tools
 RUN mkdir -p /root/Desktop/tools
 WORKDIR /root/Desktop/tools
-RUN echo "https://franc205.notion.site/Charla-Pivoting-f4101bdaa31b4dbca588907017c17634?pvs=4" >> notes.txt
+
 COPY files/toolkit.tar.gz toolkit.tar.gz
 RUN tar -xzvf toolkit.tar.gz
 RUN wget https://raw.githubusercontent.com/3ndG4me/KaliLists/master/dirbuster/directory-list-2.3-medium.txt
 WORKDIR /root
+COPY files/Walkthrough.desktop /root/Desktop/Walkthrough.desktop
 
 # Comando predeterminado para iniciar SSH y Bash
 CMD ["/usr/sbin/sshd", "-D"]

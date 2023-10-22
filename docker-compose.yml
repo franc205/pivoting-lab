@@ -162,7 +162,7 @@ networks:
     ipam:
       config:
         - subnet: 192.168.11.0/24
-    internal: true #Permitir salida a Internet
+    internal: true
 
   network_c:
     driver: bridge
@@ -190,4 +190,4 @@ networks:
     ipam:
       config:
         - subnet: 192.168.100.0/24
-    #internal: true
+    internal: true
