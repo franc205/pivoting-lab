@@ -18,7 +18,7 @@ RUN apt-get update && \
 
 # Configura el servicio SSH para permitir acceso remoto
 RUN mkdir /var/run/sshd
-RUN echo 'root:toor' | chpasswd
+RUN echo 'root:iRsVTdrZ3AD_XE@w' | chpasswd
 RUN sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config
 
 # Copiar key publica

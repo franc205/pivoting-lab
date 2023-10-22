@@ -18,7 +18,7 @@ RUN apt-get update && \
 
 # Configura el servicio SSH para permitir acceso remoto
 RUN mkdir /var/run/sshd
-RUN echo 'root:toor' | chpasswd
+RUN echo 'root:LRh3q__ub#-MXcte' | chpasswd
 RUN sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config
 
 RUN echo "flag{3d4f2bf07dc1be38b20cd6e46949a107}" >> /root/flag.txt

@@ -24,7 +24,7 @@ RUN apt-get update && \
 
 # Configura el servicio SSH para permitir acceso remoto
 RUN mkdir /var/run/sshd
-RUN echo 'root:toor' | chpasswd
+RUN echo 'root:efeA7U7@#Uf#KCTv' | chpasswd
 RUN sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config
 
 RUN pip3 install pcapy-ng
