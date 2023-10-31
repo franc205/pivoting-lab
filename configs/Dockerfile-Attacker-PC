@@ -59,5 +59,6 @@ RUN wget https://raw.githubusercontent.com/3ndG4me/KaliLists/master/dirbuster/di
 WORKDIR /root
 COPY files/Walkthrough.desktop /root/Desktop/Walkthrough.desktop
 
+
 # Comando predeterminado para iniciar SSH y Bash
 CMD ["/usr/sbin/sshd", "-D"]
