@@ -1,4 +1,5 @@
 # Pivoting Lab
+Walkthrough English: [Notion Link](https://franc205.notion.site/ENGLISH-From-Network-to-Network-Hands-On-Pivoting-Techniques-in-Internal-Environments-de5fdd40e9fc4fc584f25cb584fa1127?pvs=4)
 
 Walkthrough Español: [Notion Link](https://franc205.notion.site/From-Network-to-Network-Hands-On-Pivoting-Techniques-in-Internal-Environments-f4101bdaa31b4dbca588907017c17634)
 
