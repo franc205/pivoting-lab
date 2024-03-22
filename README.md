@@ -17,7 +17,6 @@ docker-compose up -d --build
 **Remove the lab from your system**
 
 ```
-
 docker-compose down -v --rmi all
 docker builder prune -a
 ```
