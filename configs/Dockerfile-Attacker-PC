@@ -57,8 +57,8 @@ COPY files/toolkit.tar.gz toolkit.tar.gz
 RUN tar -xzvf toolkit.tar.gz
 RUN wget https://raw.githubusercontent.com/3ndG4me/KaliLists/master/dirbuster/directory-list-2.3-medium.txt
 WORKDIR /root
-COPY files/Walkthrough.desktop /root/Desktop/Walkthrough.desktop
-
+COPY files/Walkthrough_ES.desktop /root/Desktop/Walkthrough_ES.desktop
+COPY files/Walkthrough_EN.desktop /root/Desktop/Walkthrough_EN.desktop
 
 # Comando predeterminado para iniciar SSH y Bash
 CMD ["/usr/sbin/sshd", "-D"]

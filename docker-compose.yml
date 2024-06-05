@@ -14,7 +14,8 @@ services:
       - "6080:6080"
     entrypoint: /bin/bash -c /root/start.sh
     networks:
-      - network_a
+      network_a:
+        ipv4_address: 192.168.10.2
     cap_add:
       - NET_ADMIN
 
@@ -30,8 +31,10 @@ services:
       - "8000:8000"
     command: /bin/bash -c "/usr/sbin/sshd -D && /bin/bash"
     networks:
-      - network_a
-      - network_b
+      network_a:
+        ipv4_address: 192.168.10.3
+      network_b:
+        ipv4_address: 192.168.11.2
     cap_add:
       - NET_ADMIN
 
@@ -46,9 +49,12 @@ services:
     #  - "8080:80"
     command: /bin/bash -c "service apache2 start && /usr/sbin/sshd -D && /bin/bash"
     networks:
-      - network_b
-      - network_c
-      - network_d
+      network_b:
+        ipv4_address: 192.168.11.3
+      network_c:
+        ipv4_address: 192.168.12.2
+      network_d:
+        ipv4_address: 192.168.13.2
     cap_add:
       - NET_ADMIN
 
@@ -61,7 +67,8 @@ services:
     hostname: Summer-PC
     command: /bin/bash -c "/usr/sbin/sshd -D && /bin/bash"
     networks:
-      - network_c
+      network_c:
+        ipv4_address: 192.168.12.3
     cap_add:
       - NET_ADMIN
 
@@ -74,7 +81,8 @@ services:
     hostname: Beth-PC
     command: /bin/bash -c "/usr/sbin/sshd -D && /bin/bash"
     networks:
-      - network_c
+      network_c:
+        ipv4_address: 192.168.12.4
     cap_add:
       - NET_ADMIN
 
@@ -87,7 +95,8 @@ services:
     hostname: SpaceBeth-PC
     command: /bin/bash -c "/usr/sbin/sshd -D && /bin/bash"
     networks:
-      - network_c
+      network_c:
+        ipv4_address: 192.168.12.5
     cap_add:
       - NET_ADMIN
 
@@ -102,8 +111,10 @@ services:
     #  - "8080:80"
     entrypoint: /bin/bash -c /root/start.sh
     networks:
-      - network_d
-      - network_e
+      network_d:
+        ipv4_address: 192.168.13.3
+      network_e:
+        ipv4_address: 192.168.14.2
     cap_add:
       - NET_ADMIN
 
@@ -116,7 +127,8 @@ services:
     hostname: Birdperson-PC
     command: /bin/bash -c "/usr/sbin/sshd -D && /bin/bash"
     networks:
-      - network_e
+      network_e:
+        ipv4_address: 192.168.14.3
     cap_add:
       - NET_ADMIN
 
@@ -129,8 +141,10 @@ services:
     hostname: Morty-PC
     command: /bin/bash -c "/usr/sbin/sshd -D && /bin/bash"
     networks:
-      - network_e
-      - network_f
+      network_e:
+        ipv4_address: 192.168.14.4
+      network_f:
+        ipv4_address: 192.168.100.2
     cap_add:
       - NET_ADMIN
 
@@ -143,7 +157,8 @@ services:
     hostname: Rick-PC
     command: /bin/bash -c "/usr/sbin/sshd -D && /bin/bash"
     networks:
-      - network_f
+      network_f:
+        ipv4_address: 192.168.100.50
     cap_add:
       - NET_ADMIN
 
