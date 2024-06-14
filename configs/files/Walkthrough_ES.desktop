@@ -1,6 +1,7 @@
 [Desktop Entry]
 Version=1.0
-Type=Link
+Type=Application
 Name=Walkthrough_ES
-URL=https://franc205.notion.site/Charla-Pivoting-f4101bdaa31b4dbca588907017c17634?pvs=4
+Exec=bash -c 'URL="https://franc205.notion.site/ESPA-OL-From-Network-to-Network-Hands-On-Pivoting-Techniques-in-Internal-Environments-f4101bdaa31b4dbca588907017c17634"; PROFILE="default"; firefox-esr  > /dev/null 2>&1 & sleep 1; kill $!; sleep 0; firefox-esr -P "$PROFILE" "$URL" &'
 Icon=text-html
+Terminal=false

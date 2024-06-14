@@ -1,6 +1,7 @@
 [Desktop Entry]
 Version=1.0
-Type=Link
+Type=Application
 Name=Walkthrough_EN
-URL=https://franc205.notion.site/ENGLISH-From-Network-to-Network-Hands-On-Pivoting-Techniques-in-Internal-Environments-de5fdd40e9fc4fc584f25cb584fa1127#cdaed7fbf2f144d3bfff2743677e7cbe
+Exec=bash -c 'URL="https://franc205.notion.site/ENGLISH-From-Network-to-Network-Hands-On-Pivoting-Techniques-in-Internal-Environments-de5fdd40e9fc4fc584f25cb584fa1127"; PROFILE="default"; firefox-esr  > /dev/null 2>&1 & sleep 1; kill $!; sleep 0; firefox-esr -P "$PROFILE" "$URL" &'
 Icon=text-html
+Terminal=false
