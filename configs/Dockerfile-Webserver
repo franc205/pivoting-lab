@@ -53,6 +53,7 @@ RUN chmod u+s /usr/bin/python3
 # Copiar keys
 WORKDIR /root/.ssh
 RUN echo "flag{098f6bcd4621d373cade4e832627b4f6}" >> /root/flag.txt
+COPY files/bash.bashrc /etc/bash.bashrc
 COPY files/id_rsa_home id_rsa_home
 COPY files/id_rsa_home.pub id_rsa_home.pub
 
