@@ -40,7 +40,7 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/*
 
 # Configura el servicio SSH para permitir acceso remoto
-RUN mkdir /var/run/sshd
+RUN mkdir -p /var/run/sshd
 RUN echo 'root:toor' | chpasswd
 RUN sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config
 
