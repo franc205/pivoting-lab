@@ -33,5 +33,5 @@ RUN tar -xzvf toolkit.tar.gz
 EXPOSE 22
 
 # Comando predeterminado para iniciar SSH y Bash
-CMD ["/usr/sbin/sshd", "-D"]
+#CMD ["/usr/sbin/sshd", "-D"]
 CMD ["/bin/bash"]

@@ -37,5 +37,5 @@ COPY files/id_rsa_home.pub authorized_keys
 EXPOSE 22
 
 # Comando predeterminado para iniciar SSH y Bash
-CMD ["/usr/sbin/sshd", "-D"]
+#CMD ["/usr/sbin/sshd", "-D"]
 CMD ["/bin/bash"]

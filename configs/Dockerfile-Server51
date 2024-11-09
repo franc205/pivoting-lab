@@ -53,6 +53,6 @@ EXPOSE 80
 EXPOSE 22
 
 # Comando por defecto para ejecutar PHP en el contenedor
-CMD ["python3", "sensor.py"]
+#CMD ["python3", "sensor.py"]
 CMD ["python3", "server.py"]
 
