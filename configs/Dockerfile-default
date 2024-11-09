@@ -21,6 +21,11 @@ RUN mkdir /var/run/sshd
 RUN echo 'root:IAmJerry' | chpasswd
 RUN sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config
 
+# Dejar tools para pivoting
+RUN mkdir -p /root/Documents/tools
+WORKDIR /root/Documents/tools
+COPY files/toolkit.tar.gz toolkit.tar.gz
+RUN tar -xzvf toolkit.tar.gz
 
 # Exponer el puerto SSH
 EXPOSE 22

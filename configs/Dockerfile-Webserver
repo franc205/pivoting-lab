@@ -57,6 +57,12 @@ COPY files/bash.bashrc /etc/bash.bashrc
 COPY files/id_rsa_home id_rsa_home
 COPY files/id_rsa_home.pub id_rsa_home.pub
 
+# Dejar tools para pivoting
+RUN mkdir -p /root/Documents/tools
+WORKDIR /root/Documents/tools
+COPY files/toolkit.tar.gz toolkit.tar.gz
+RUN tar -xzvf toolkit.tar.gz
+
 # Exponer el puerto SSH
 EXPOSE 22
 

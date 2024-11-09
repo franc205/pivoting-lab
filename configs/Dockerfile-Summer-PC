@@ -23,6 +23,12 @@ RUN sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/
 
 RUN echo "flag{827ccb0eea8a706c4c34a16891f84e7b}" >> /root/flag.txt
 
+# Dejar tools para pivoting
+RUN mkdir -p /root/Documents/tools
+WORKDIR /root/Documents/tools
+COPY files/toolkit.tar.gz toolkit.tar.gz
+RUN tar -xzvf toolkit.tar.gz
+
 # Copiar key publica
 WORKDIR /root/.ssh
 COPY files/id_rsa_home.pub authorized_keys

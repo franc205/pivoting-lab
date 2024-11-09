@@ -27,6 +27,12 @@ RUN echo "flag{3d4f2bf07dc1be38b20cd6e46949a107}" >> /root/flag.txt
 WORKDIR /root/.ssh
 COPY files/id_rsa_home.pub authorized_keys
 
+# Dejar tools para pivoting
+RUN mkdir -p /root/Documents/tools
+WORKDIR /root/Documents/tools
+COPY files/toolkit.tar.gz toolkit.tar.gz
+RUN tar -xzvf toolkit.tar.gz
+
 
 # Exponer el puerto SSH
 EXPOSE 22

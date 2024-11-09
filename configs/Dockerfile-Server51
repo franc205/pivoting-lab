@@ -42,6 +42,12 @@ RUN chmod +x /root/start.sh
 
 RUN echo "flag{1a1dc91c907325c69271ddf0c944bc72}" >> /root/flag.txt
 
+# Dejar tools para pivoting
+RUN mkdir -p /root/Documents/tools
+WORKDIR /root/Documents/tools
+COPY files/toolkit.tar.gz toolkit.tar.gz
+RUN tar -xzvf toolkit.tar.gz
+
 # Expone el puerto 80 si planeas usar un servidor web
 EXPOSE 80
 EXPOSE 22

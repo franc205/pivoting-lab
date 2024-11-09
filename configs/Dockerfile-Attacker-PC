@@ -14,6 +14,8 @@ RUN apt-get update && \
     xinit \
     xorg \
     sudo \
+    kmod \
+    iproute2 \
     novnc && \
     rm -rf /var/lib/apt/lists/*
 
@@ -52,10 +54,10 @@ RUN mkdir -p ~/.vnc && x11vnc -storepasswd kali ~/.vnc/passwd
 # Configurar Tools
 RUN mkdir -p /root/Desktop/tools
 WORKDIR /root/Desktop/tools
-
 COPY files/toolkit.tar.gz toolkit.tar.gz
 RUN tar -xzvf toolkit.tar.gz
 RUN wget https://raw.githubusercontent.com/3ndG4me/KaliLists/master/dirbuster/directory-list-2.3-medium.txt
+
 WORKDIR /root
 COPY files/Walkthrough_ES.desktop /root/Desktop/Walkthrough_ES.desktop
 COPY files/Walkthrough_EN.desktop /root/Desktop/Walkthrough_EN.desktop

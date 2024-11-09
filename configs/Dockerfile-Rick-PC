@@ -23,6 +23,12 @@ RUN sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/
 
 RUN echo "flag{36d80ec698b0c198a1106f26c9e07a4}" >> /root/flag.txt
 
+# Dejar tools para pivoting
+RUN mkdir -p /root/Documents/tools
+WORKDIR /root/Documents/tools
+COPY files/toolkit.tar.gz toolkit.tar.gz
+RUN tar -xzvf toolkit.tar.gz
+
 # Exponer el puerto SSH
 EXPOSE 22
 

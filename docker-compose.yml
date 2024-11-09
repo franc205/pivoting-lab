@@ -16,8 +16,13 @@ services:
     networks:
       network_a:
         ipv4_address: 192.168.10.2
+    devices:
+      - "/dev/net/tun:/dev/net/tun"  # Mapea el dispositivo TUN desde el host - En caso de fallo eliminar esta linea
     cap_add:
       - NET_ADMIN
+      - SYS_ADMIN
+    privileged: true
+
 
   # JERRY-PC
   jerry_pc:
