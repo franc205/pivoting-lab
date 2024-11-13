@@ -1,7 +1,7 @@
 # Pivoting Lab
 Walkthrough English: [Notion Link](https://franc205.notion.site/ENGLISH-From-Network-to-Network-Hands-On-Pivoting-Techniques-in-Internal-Environments-de5fdd40e9fc4fc584f25cb584fa1127?pvs=4)
 
-Walkthrough Español: [Notion Link](https://franc205.notion.site/From-Network-to-Network-Hands-On-Pivoting-Techniques-in-Internal-Environments-f4101bdaa31b4dbca588907017c17634)
+Walkthrough Español: [Notion Link](https://franc205.notion.site/ESPA-OL-From-Network-to-Network-Hands-On-Pivoting-Techniques-in-Internal-Environments-13b1f42ae1de80cd8c20f0e5a8d29a08)
 
 ## English
 
@@ -12,13 +12,13 @@ Below are the steps to deploy the lab and to remove it:
 ```
 git clone https://github.com/franc205/pivoting-lab.git
 cd pivoting-lab
-docker-compose up -d --build
+docker compose up -d --build
 ```
 
 **Remove the lab from your system**
 
 ```
-docker-compose down -v --rmi all
+docker compose down -v --rmi all
 docker builder prune -a
 ```
 
@@ -40,12 +40,12 @@ A continuación, se detallan los pasos para desplegar el laboratorio y para elim
 ```
 git clone https://github.com/franc205/pivoting-lab.git
 cd pivoting-lab
-docker-compose up -d --build
+docker compose up -d --build
 ```
 
 **Remove the lab from your system**
 ```
-docker-compose down -v --rmi all
+docker compose down -v --rmi all
 docker builder prune -a
 ```
 
@@ -54,4 +54,4 @@ Mediante el archivo Docker Compose se despliegan 10 contenedores, con el objetiv
 **Notas importantes**
 
 - NO se recomienda VER el diagrama de red previo a resolver el laboratorio, esto a fin de poder ir aprendiendo a recorrer las redes a medida que se van comprometiendo los hosts.
-- Por otra parte, SI se recomienda ver el Walkthrough (Tanto en su versión PDF disponible en este repositorio, como en la versión de Notion en el siguiente [Link](https://franc205.notion.site/From-Network-to-Network-Hands-On-Pivoting-Techniques-in-Internal-Environments-f4101bdaa31b4dbca588907017c17634)). Esto es debido a que el Walkthrough cuenta con una sección inicial para entender la configuración y el escenario planteado, y también cuenta con "Pausas" indicadas para poder dejar de lado el Walkthrough e intentar comprometer el laboratorio por cuenta propia.
+- Por otra parte, SI se recomienda ver el Walkthrough (Tanto en su versión PDF disponible en este repositorio, como en la versión de Notion en el siguiente [Link](https://franc205.notion.site/ESPA-OL-From-Network-to-Network-Hands-On-Pivoting-Techniques-in-Internal-Environments-13b1f42ae1de80cd8c20f0e5a8d29a08). Esto es debido a que el Walkthrough cuenta con una sección inicial para entender la configuración y el escenario planteado, y también cuenta con "Pausas" indicadas para poder dejar de lado el Walkthrough e intentar comprometer el laboratorio por cuenta propia.
