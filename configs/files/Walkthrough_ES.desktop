@@ -2,6 +2,6 @@
 Version=1.0
 Type=Application
 Name=Walkthrough_ES
-Exec=bash -c 'URL="https://franc205.notion.site/ESPA-OL-From-Network-to-Network-Hands-On-Pivoting-Techniques-in-Internal-Environments-f4101bdaa31b4dbca588907017c17634"; PROFILE="default"; firefox-esr  > /dev/null 2>&1 & sleep 1; kill $!; sleep 0; firefox-esr -P "$PROFILE" "$URL" &'
+Exec=bash -c 'URL="https://franc205.notion.site/ESPA-OL-From-Network-to-Network-Hands-On-Pivoting-Techniques-in-Internal-Environments-13b1f42ae1de80cd8c20f0e5a8d29a08"; PROFILE="default"; firefox-esr  > /dev/null 2>&1 & sleep 1; kill $!; sleep 0; firefox-esr -P "$PROFILE" "$URL" &'
 Icon=text-html
 Terminal=false
