@@ -4,8 +4,6 @@
 
 **An immersive, multi-container environment designed to practice network pivoting and lateral movement techniques.**
 
-[English](#english) | [Español](#español)
-
 ---
 
 ## 🇬🇧 English
