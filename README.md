@@ -34,8 +34,7 @@ docker compose up -d --build
 Once you are done, completely remove the lab, its volumes, and clean up your system using the following commands:
 
 ```bash
-docker compose down -v --rmi all
-docker builder prune -a
+docker compose down -v --rmi local
 ```
 
 ### ⚠️ Important Notes
@@ -76,8 +75,7 @@ docker compose up -d --build
 Cuando hayas terminado, puedes eliminar por completo el laboratorio, sus volúmenes y limpiar tu sistema utilizando los siguientes comandos:
 
 ```bash
-docker compose down -v --rmi all
-docker builder prune -a
+docker compose down -v --rmi local
 ```
 
 ### ⚠️ Notas Importantes
