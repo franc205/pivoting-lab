@@ -25,8 +25,8 @@ The lab consists of **10 interconnected containers**, representing different net
 To deploy the lab, clone the repository and run the Docker Compose build command:
 
 ```bash
-git clone https://github.com/franc205/pivoting-lab.git
-cd pivoting-lab
+git clone https://github.com/franc205/dvpe.git
+cd dvpe
 docker compose up -d --build
 ```
 
@@ -48,7 +48,7 @@ docker builder prune -a
 
 ---
 
-## 🇪🇸 Español
+## 🇦🇷 Español
 
 ¡Bienvenido a **Damn Vulnerable Pivoting Environment**! Este repositorio contiene todos los archivos necesarios para desplegar un entorno completo de Pivoting utilizando Docker.
 
@@ -67,8 +67,8 @@ Mediante el archivo Docker Compose, se despliegan **10 contenedores** que simula
 Para montar el laboratorio, clona el repositorio y ejecuta el comando de construcción de Docker Compose:
 
 ```bash
-git clone https://github.com/franc205/pivoting-lab.git
-cd pivoting-lab
+git clone https://github.com/franc205/dvpe.git
+cd dvpe
 docker compose up -d --build
 ```
 

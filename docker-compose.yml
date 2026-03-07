@@ -17,12 +17,11 @@ services:
       network_a:
         ipv4_address: 192.168.10.2
     devices:
-      - "/dev/net/tun:/dev/net/tun"  # Mapea el dispositivo TUN desde el host - En caso de fallo eliminar esta linea
+      - "/dev/net/tun:/dev/net/tun" # Mapea el dispositivo TUN desde el host - En caso de fallo eliminar esta linea
     cap_add:
       - NET_ADMIN
       - SYS_ADMIN
     privileged: true
-
 
   # JERRY-PC
   jerry_pc:
@@ -112,8 +111,8 @@ services:
       dockerfile: Dockerfile-Server51
     container_name: Server51
     hostname: Server51
-    #ports:
-    #  - "8080:80"
+    ports:
+      - "8080:80"
     entrypoint: /bin/bash -c /root/start.sh
     networks:
       network_d:
@@ -166,7 +165,6 @@ services:
         ipv4_address: 192.168.100.50
     cap_add:
       - NET_ADMIN
-
 
 # Networks
 networks:

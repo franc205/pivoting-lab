@@ -2,7 +2,7 @@
 FROM ubuntu:22.04
 ENTRYPOINT ["/root/start-server51.sh"]
 
-ENV MAILTRAIL_URL https://github.com/stamparm/maltrail/archive/refs/tags/0.53.tar.gz
+#ENV MAILTRAIL_URL https://github.com/Mezantrop74/MAILTRAIL/archive/refs/tags/0.37.tar.gz
 
 RUN apt-get update && \
     DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
@@ -30,9 +30,11 @@ RUN sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/
 RUN pip3 install pcapy-ng
 
 WORKDIR /var/www/html
-RUN curl -SL "$MAILTRAIL_URL" -o maltrail.tar.gz && \
-    tar -xf maltrail.tar.gz --strip-components=1 && \
-    rm maltrail.tar.gz
+
+COPY files/mailtrail.tar.gz mailtrail.tar.gz 
+
+RUN tar -xf mailtrail.tar.gz --strip-components=1 && \
+    rm mailtrail.tar.gz
 
 RUN sed -i 's/HTTP_PORT 8338/HTTP_PORT 80/' maltrail.conf
 
